@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { Circle } from '../components/Circle';
-import { Crumbs, navCrumbs } from '../components/Crumbs';
+import { Crumbs } from '../components/Crumbs';
+import { navCrumbs } from '../data/nav';
 import { Icon } from '../components/Icon';
 import { Slash } from '../components/Slash';
 import type { IconName } from '../types';

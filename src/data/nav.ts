@@ -1,4 +1,4 @@
-import type { NavItem } from '../types';
+import type { Crumb, NavItem } from '../types';
 
 // Top-level navigation: header menu + inline-slash crumb bands.
 export const NAV: NavItem[] = [
@@ -9,3 +9,8 @@ export const NAV: NavItem[] = [
   { id: 'coaching', label: 'Coaching', path: '/coaching' },
   { id: 'join', label: 'Join', path: '/join' },
 ];
+
+// Build the full-nav crumb set for a top-level page, current item enlarged.
+export function navCrumbs(currentId: string): Crumb[] {
+  return NAV.map((n) => (n.id === currentId ? { label: n.label } : { label: n.label, to: n.path }));
+}

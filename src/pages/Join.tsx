@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { Circle } from '../components/Circle';
-import { Crumbs, navCrumbs } from '../components/Crumbs';
+import { Crumbs } from '../components/Crumbs';
+import { navCrumbs } from '../data/nav';
 
 export default function Join() {
   const [label, setLabel] = useState('Join');

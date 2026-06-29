@@ -45,6 +45,12 @@ export interface Intake {
   trackOverride?: TrackName;
 }
 
+export interface Crumb {
+  label: string;
+  /** A link target; omit for the current page (rendered large). */
+  to?: string;
+}
+
 export type IconName =
   | 'route'
   | 'write'

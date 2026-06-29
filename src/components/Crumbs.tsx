@@ -1,18 +1,7 @@
 import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { NAV } from '../data/nav';
+import type { Crumb } from '../types';
 import { Slash } from './Slash';
-
-export interface Crumb {
-  label: string;
-  /** A link target; omit for the current page (rendered large). */
-  to?: string;
-}
-
-// Build the full-nav crumb set for a top-level page, current item enlarged.
-export function navCrumbs(currentId: string): Crumb[] {
-  return NAV.map((n) => (n.id === currentId ? { label: n.label } : { label: n.label, to: n.path }));
-}
 
 // The inline-slash nav band: items spread full width with tall leaning
 // slashes between, plus leading and trailing slashes.
