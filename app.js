@@ -61,9 +61,11 @@
       node.addEventListener('click', function () { goTo(node.getAttribute('data-nav')); });
     });
     var toggle = root.querySelector('[data-menu-toggle]');
-    if (toggle) toggle.addEventListener('click', openMenu);
+    if (toggle) toggle.addEventListener('click', function () { openMenu(); });
+    // Wrap in a closure so a later openRouter reassignment (from the flow
+    // module via setHooks) is picked up without re-binding the listener.
     document.querySelectorAll('[data-open-router]').forEach(function (b) {
-      b.addEventListener('click', openRouter);
+      b.addEventListener('click', function () { openRouter(); });
     });
     var joinForm = root.querySelector('[data-join-form]');
     if (joinForm) joinForm.addEventListener('submit', function (e) {
@@ -192,7 +194,6 @@
         if (h.openRouter) openRouter = h.openRouter;
         if (h.renderOverlay) renderOverlay = h.renderOverlay;
         if (h.closeAllScreens) closeAllScreens = h.closeAllScreens;
-        bindStaticNav();
       }
     };
   }
