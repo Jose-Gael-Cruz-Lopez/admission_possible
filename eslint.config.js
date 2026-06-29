@@ -22,4 +22,11 @@ export default tseslint.config(
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
   },
+  {
+    // Test files and helpers are not fast-refresh boundaries.
+    files: ['**/*.test.{ts,tsx}', 'src/test/**'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 );
