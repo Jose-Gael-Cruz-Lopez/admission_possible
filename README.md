@@ -27,6 +27,21 @@ npm run build      # type-check (tsc -b) + production build to dist/
 npm run preview    # serve the production build
 ```
 
+## Quality
+
+```bash
+npm run typecheck    # tsc, no emit
+npm run lint         # ESLint (flat config, TS + react-hooks)
+npm run format       # Prettier write   (format:check to verify)
+npm test             # Vitest + Testing Library (jsdom)
+```
+
+Tests live next to the code they cover (`*.test.ts[x]`) and include
+`computePlan` branch coverage, storage round-trips, component unit tests,
+and an end-to-end intake-flow test (router → plan → dashboard). CI
+(`.github/workflows/ci.yml`) runs typecheck, lint, format check, tests,
+and build on every push and PR to `main`.
+
 ## Project structure
 
 ```
