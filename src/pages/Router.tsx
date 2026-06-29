@@ -60,7 +60,14 @@ export default function Router() {
 
   return (
     <main>
-      <div className="ov-progress">
+      <div
+        className="ov-progress"
+        role="progressbar"
+        aria-label="Intake progress"
+        aria-valuemin={1}
+        aria-valuemax={total}
+        aria-valuenow={step + 1}
+      >
         {QUESTIONS.map((_, i) => (
           <div key={i} className="ov-seg" style={{ background: i <= step ? 'var(--accent)' : 'var(--hairline)' }} />
         ))}
@@ -70,15 +77,17 @@ export default function Router() {
           {step + 1} / {total}
           {q.multi && <span className="ov-router__hint">Select all that apply</span>}
         </div>
-        <h2 className="ov-router__q">{q.q}</h2>
-        <div className="ov-ans__list">
+        <h2 className="ov-router__q" id="router-question">
+          {q.q}
+        </h2>
+        <div className="ov-ans__list" role="group" aria-labelledby="router-question">
           {q.options.map((opt) => {
             const on = isSelected(opt);
             return (
-              <div className="ov-ans" key={opt} onClick={() => select(opt)}>
-                <div className={'ov-ans__mark' + (on ? ' is-on' : '')} />
-                <div className={'ov-ans__label' + (on ? ' is-on' : '')}>{opt}</div>
-              </div>
+              <button type="button" className="ov-ans" key={opt} onClick={() => select(opt)} aria-pressed={on}>
+                <span className={'ov-ans__mark' + (on ? ' is-on' : '')} aria-hidden="true" />
+                <span className={'ov-ans__label' + (on ? ' is-on' : '')}>{opt}</span>
+              </button>
             );
           })}
         </div>
