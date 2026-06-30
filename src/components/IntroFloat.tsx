@@ -96,3 +96,10 @@ export function IntroFloat() {
       window.removeEventListener('resize', onScroll);
     };
   }, []);
+
+  return (
+    <section ref={sectionRef} className="intro" aria-label="Intro">
+      <div ref={stageRef} className="intro__stage">
+        <div className="intro__field" aria-hidden="true">
+          {TILES.map((t, i) => {
+            const d = DEPTH[t.depth];
