@@ -59,13 +59,9 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
 
 .accent { color: var(--accent); }
 
-.wordmark {
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.01em;
-}
-.wordmark--lg { font-size: 24px; }
+.wordmark { display: inline-flex; align-items: center; }
+.wordmark__img { display: block; height: 44px; width: auto; }
+.wordmark--lg .wordmark__img { height: 60px; }
 
 /* slashes — diagonal hairlines, rotated in by motion */
 .slash {
@@ -351,7 +347,7 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
 
 /* ---- header link + white wordmark ---- */
 .wordmark-link { text-decoration: none; color: inherit; }
-.wordmark--white { color: #fff; }
+.wordmark--white .wordmark__img { filter: brightness(0) invert(1); }
 
 /* ---- inline-slash crumb links ---- */
 .crumbs a { color: var(--ink); text-decoration: none; }
