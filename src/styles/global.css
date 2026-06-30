@@ -420,6 +420,14 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
   object-fit: cover; border-radius: 2px;
   box-shadow: 0 8px 22px rgba(40, 38, 32, 0.07);
   opacity: 0;
+  animation: itileLoad 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--ldelay) both;
+}
+.itile--near .itile__media { box-shadow: 0 14px 34px rgba(40, 38, 32, 0.1); }
+.itile--far .itile__media { box-shadow: none; }
+
+@keyframes itileFloat {
+  from { transform: translate(calc(var(--fx) * -0.5), var(--fy)); }
+  to { transform: translate(var(--fx), calc(var(--fy) * -1)); }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 860px) {
