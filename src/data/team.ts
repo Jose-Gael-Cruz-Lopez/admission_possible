@@ -43,7 +43,8 @@ export const TEAM: TeamMember[] = [
     tilt: 5,
     path: 'Public school → Berkeley → Builder',
     bio: "I came up through overcrowded classrooms and a counselor who had four hundred other students. Everything I learned about applying, I learned too late or by accident. I'm here so the next kid learns it on time.",
-    belief: 'I believe access is a design problem, not a talent problem. Talent is everywhere. The instructions are not.',
+    belief:
+      'I believe access is a design problem, not a talent problem. Talent is everywhere. The instructions are not.',
     beliefSub:
       'My job is to turn the chaos of deadlines, portals, and fine print into something that feels calm and doable, one clear step at a time.',
     tags: ['Operations', 'Financial aid', 'Outreach', 'Curriculum', 'Community', 'Coaching'],

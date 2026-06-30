@@ -40,14 +40,14 @@ The original vanilla implementation is preserved in git history (see the
 
 ## Tech stack
 
-| Concern        | Choice                                  |
-| -------------- | --------------------------------------- |
-| UI             | **React 18** + **TypeScript** (strict)  |
-| Build / dev    | **Vite**                                |
-| Routing        | **React Router** (client-side)          |
-| Styling        | A single hand-authored `global.css`     |
-| Tests          | **Vitest** + **Testing Library** (jsdom)|
-| Hosting        | Static SPA (Vercel rewrite / SPA fallback) |
+| Concern     | Choice                                     |
+| ----------- | ------------------------------------------ |
+| UI          | **React 18** + **TypeScript** (strict)     |
+| Build / dev | **Vite**                                   |
+| Routing     | **React Router** (client-side)             |
+| Styling     | A single hand-authored `global.css`        |
+| Tests       | **Vitest** + **Testing Library** (jsdom)   |
+| Hosting     | Static SPA (Vercel rewrite / SPA fallback) |
 
 ---
 
@@ -64,15 +64,15 @@ npm run preview    # serve the production build
 
 ## Available scripts
 
-| Script                | What it does                                  |
-| --------------------- | --------------------------------------------- |
-| `npm run dev`         | Start the Vite dev server with HMR            |
-| `npm run build`       | Type-check then build to `dist/`              |
-| `npm run preview`     | Serve the production build locally            |
-| `npm run typecheck`   | `tsc`, no emit                                |
-| `npm run lint`        | ESLint (flat config, TS + react-hooks)        |
-| `npm run format`      | Prettier write (`format:check` to verify)     |
-| `npm test`            | Vitest + Testing Library (jsdom)              |
+| Script              | What it does                              |
+| ------------------- | ----------------------------------------- |
+| `npm run dev`       | Start the Vite dev server with HMR        |
+| `npm run build`     | Type-check then build to `dist/`          |
+| `npm run preview`   | Serve the production build locally        |
+| `npm run typecheck` | `tsc`, no emit                            |
+| `npm run lint`      | ESLint (flat config, TS + react-hooks)    |
+| `npm run format`    | Prettier write (`format:check` to verify) |
+| `npm test`          | Vitest + Testing Library (jsdom)          |
 
 ---
 
@@ -142,11 +142,11 @@ deadline."_ sits centered while ~20 thumbnail images orbit it.
 
 **Three-layer composition** keeps transforms from colliding:
 
-| Layer            | Owns                                  |
-| ---------------- | ------------------------------------- |
-| `.itile`         | scatter position + scroll parallax    |
-| `.itile__inner`  | continuous idle drift                 |
-| `.itile__media`  | one-shot load arrival                 |
+| Layer           | Owns                               |
+| --------------- | ---------------------------------- |
+| `.itile`        | scatter position + scroll parallax |
+| `.itile__inner` | continuous idle drift              |
+| `.itile__media` | one-shot load arrival              |
 
 **Performance & a11y** — only `transform` / `opacity` animate, `will-change`
 is scoped to animated wrappers, far images lazy-load, and
@@ -175,14 +175,14 @@ reach/target/likely list, and a track.
 
 - **Type** — Geist Mono (display) + Inter (body).
 - **Palette**
-  | Token       | Value       | Use                 |
-  | ----------- | ----------- | ------------------- |
-  | `--bg`      | `#F5F2E0`   | warm cream paper    |
-  | `--ink`     | `#3A3A36`   | text                |
-  | `--muted`   | `#6F6E68`   | secondary text      |
-  | `--accent`  | `#E8491D`   | orange accent       |
-  | `--card`    | `#FBFAF1`   | surfaces            |
-  | `--hairline`| `#C9C6BE`   | rules / borders     |
+  | Token        | Value     | Use              |
+  | ------------ | --------- | ---------------- |
+  | `--bg`       | `#F5F2E0` | warm cream paper |
+  | `--ink`      | `#3A3A36` | text             |
+  | `--muted`    | `#6F6E68` | secondary text   |
+  | `--accent`   | `#E8491D` | orange accent    |
+  | `--card`     | `#FBFAF1` | surfaces         |
+  | `--hairline` | `#C9C6BE` | rules / borders  |
 - **Motion** — scroll-triggered reveals and rotating hairline "slashes",
   re-scanned on each route change (`IntersectionObserver` + visibility/timeout
   fallback), plus the Home intro animation above. All respect

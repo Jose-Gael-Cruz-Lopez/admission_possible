@@ -26,7 +26,9 @@ export default function Home() {
         <div className="rule" />
         <div className="team__head">
           <div className="label">Founding team</div>
-          <p className="team__intro">Built by first-gen students who walked this road. Meet the people behind the plan.</p>
+          <p className="team__intro">
+            Built by first-gen students who walked this road. Meet the people behind the plan.
+          </p>
         </div>
         <div className="team__cards">
           {TEAM.map((m) => (
@@ -62,7 +64,9 @@ export default function Home() {
             <div data-reveal="">There's a rulebook for getting in. Some kids get it at the dinner table.</div>
             <div data-reveal="">We never got the table. So they called us underqualified.</div>
             <div data-reveal="">We were never underqualified. We were uninformed.</div>
-            <div data-reveal="">You've read systems nobody explained your whole life. That's not the disadvantage. That's the skill.</div>
+            <div data-reveal="">
+              You've read systems nobody explained your whole life. That's not the disadvantage. That's the skill.
+            </div>
             <div data-reveal="">So we built the map we never got. Every essay, every list, every deadline. Free.</div>
             <div data-reveal="">Built by the ones who climbed it. For the ones about to.</div>
             <div data-reveal="">Help one. Become one.</div>
