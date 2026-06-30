@@ -428,6 +428,14 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
 @keyframes itileFloat {
   from { transform: translate(calc(var(--fx) * -0.5), var(--fy)); }
   to { transform: translate(var(--fx), calc(var(--fy) * -1)); }
+}
+@keyframes itileLoad {
+  from { opacity: 0; transform: translate(var(--lx), var(--ly)) scale(0.92); }
+  to { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__stage { --inward: 0.42; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 860px) {
