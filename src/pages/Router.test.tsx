@@ -38,6 +38,6 @@ describe('intake flow', () => {
     const user = userEvent.setup();
     renderWithRouter(<App />, { route: '/router' });
     await user.click(screen.getByRole('button', { name: 'Cancel' }));
-    expect(await screen.findByText("Admission shouldn't")).toBeInTheDocument();
+    expect(await screen.findByText('Impossible is')).toBeInTheDocument();
   });
 });
