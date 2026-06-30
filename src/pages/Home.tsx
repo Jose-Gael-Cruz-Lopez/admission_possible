@@ -19,8 +19,19 @@ export default function Home() {
             in. Free, and built for the first in their family. Para todos.
           </p>
         </div>
-        <div data-reveal="" className="hero__cta">
-          <Circle to="/router">Get my plan</Circle>
+      </section>
+
+      {/* FOUNDING TEAM */}
+      <section className="team">
+        <div className="rule" />
+        <div className="team__head">
+          <div className="label">Founding team</div>
+          <p className="team__intro">Built by first-gen students who walked this road. Meet the people behind the plan.</p>
+        </div>
+        <div className="team__cards">
+          {TEAM.map((m) => (
+            <TeamCard key={m.slug} name={m.name} photo={m.photo} to={`/team/${m.slug}`} tilt={m.tilt} />
+          ))}
         </div>
       </section>
 
