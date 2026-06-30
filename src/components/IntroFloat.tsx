@@ -152,3 +152,10 @@ export function IntroFloat() {
                     height={Math.round((t.w * 4) / 3)}
                     loading={t.depth === 'far' ? 'lazy' : undefined}
                     style={
+                      {
+                        '--lx': `${(ux * loadDist).toFixed(1)}px`,
+                        '--ly': `${(uy * loadDist).toFixed(1)}px`,
+                        '--ldelay': `${(i * 0.06).toFixed(2)}s`,
+                      } as React.CSSProperties
+                    }
+                  />
