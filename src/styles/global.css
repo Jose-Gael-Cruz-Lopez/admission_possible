@@ -218,7 +218,7 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
   padding: 8px 0; font-size: 18px; color: var(--ink); outline: none;
 }
 .field textarea { resize: vertical; }
-.circle--join { position: absolute; right: -30px; bottom: -30px; }
+.circle--join { display: flex; margin: 40px 0 0 auto; }
 .join__email { font-family: var(--mono); font-weight: 700; text-transform: uppercase; font-size: clamp(20px, 2.4vw, 32px); margin-top: 90px; }
 
 /* ---- footer ---- */
