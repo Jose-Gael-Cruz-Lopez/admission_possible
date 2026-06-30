@@ -103,3 +103,10 @@ export function IntroFloat() {
         <div className="intro__field" aria-hidden="true">
           {TILES.map((t, i) => {
             const d = DEPTH[t.depth];
+            // Unit vector from centre to the tile → outward/inward/load directions.
+            const vx = t.x - 50;
+            const vy = t.y - 50;
+            const len = Math.hypot(vx, vy) || 1;
+            const ux = vx / len;
+            const uy = vy / len;
+            const inDist = d.in + (i % 4) * 9;
