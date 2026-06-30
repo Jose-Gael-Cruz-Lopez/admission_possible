@@ -10,9 +10,20 @@ college list, and a study track — followed by a student dashboard.
 
 ## Table of contents
 
-- **React 18** + **TypeScript** (strict)
-- **Vite** (dev server + build)
-- **React Router** for client-side routing
+- [Overview](#overview)
+- [Tech stack](#tech-stack)
+- [Getting started](#getting-started)
+- [Available scripts](#available-scripts)
+- [Project structure](#project-structure)
+- [Routes](#routes)
+- [Home intro animation](#home-intro-animation)
+- [The intake flow](#the-intake-flow)
+- [Design system](#design-system)
+- [Accessibility](#accessibility)
+- [Testing & CI](#testing--ci)
+- [Deployment](#deployment)
+
+---
 
 The original vanilla implementation is preserved in git history (see the
 `legacy/` directory before the migration commits).
