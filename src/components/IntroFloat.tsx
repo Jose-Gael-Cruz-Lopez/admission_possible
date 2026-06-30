@@ -26,3 +26,10 @@ type Tile = {
   vis: Vis;
 };
 
+// Distance / styling per depth tier. Near images are larger, sharper, move more,
+// and sit on top; far images are small, faint, blurred, and barely move.
+const DEPTH: Record<Depth, { in: number; out: number; blur: number; z: number }> = {
+  far: { in: 42, out: 58, blur: 1.4, z: 1 },
+  mid: { in: 84, out: 104, blur: 0, z: 3 },
+  near: { in: 140, out: 168, blur: 0, z: 5 },
+};
