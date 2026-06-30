@@ -98,6 +98,12 @@ src/
   styles/global.css     # the full design system
 ```
 
+> Files are grouped by role (data / hooks / components / pages / styles).
+> Imports rely on these locations, so prefer extending a folder over moving
+> files across folders.
+
+---
+
 ## Routes
 
 | Path                               | Page                 |
