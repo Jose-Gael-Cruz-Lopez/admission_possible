@@ -118,6 +118,20 @@ src/
 | `/join`                            | Join                 |
 | `/router` → `/plan` → `/dashboard` | The intake flow      |
 
+---
+
+## Home intro animation
+
+The Home page opens with a full-screen **floating-image hero**
+(`src/components/IntroFloat.tsx`): the headline _"Impossible is just a
+deadline."_ sits centered while ~20 thumbnail images orbit it.
+
+**Behaviour**
+
+- **Scattered, never a grid** — tiles are placed by percentage coordinates
+  across every quadrant, at three depth tiers (`far` / `mid` / `near`) that
+  drive size, opacity, blur, z-index, and movement amount.
+- **Load animation** — each image arrives from an exaggerated outer offset,
 ## The intake flow
 
 `Get my plan` goes to `/router`, a 7-question intake. On the last step the
