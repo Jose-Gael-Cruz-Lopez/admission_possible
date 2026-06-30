@@ -1,5 +1,7 @@
 import { Circle } from '../components/Circle';
 import { IntroFloat } from '../components/IntroFloat';
+import { TeamCard } from '../components/TeamCard';
+import { TEAM } from '../data/team';
 
 export default function Home() {
   return (
