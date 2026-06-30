@@ -61,3 +61,10 @@ const TILES: Tile[] = [
 
 export function IntroFloat() {
   const sectionRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const stage = stageRef.current;
+    if (!section || !stage) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
