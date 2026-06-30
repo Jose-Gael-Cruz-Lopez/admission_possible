@@ -436,6 +436,14 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
 
 @media (prefers-reduced-motion: reduce) {
   .intro__stage { --inward: 0.42; }
+  .intro__title { animation: none; }
+  .itile__inner { animation: none; }
+  .itile__media { animation: introFadeOnly 0.6s ease-out both; }
+  @keyframes introFadeOnly { from { opacity: 0; } to { opacity: 1; } }
+}
+
+/* Tablet: drop the desktop-only accents (≈12 images). */
+@media (max-width: 1100px) {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 860px) {
