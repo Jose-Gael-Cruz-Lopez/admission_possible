@@ -68,3 +68,10 @@ export function IntroFloat() {
     const stage = stageRef.current;
     if (!section || !stage) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      // Progress over the section's pinned travel: 0 = hero entering, 1 = leaving.
+      const rect = section.getBoundingClientRect();
+      const range = section.offsetHeight - window.innerHeight;
