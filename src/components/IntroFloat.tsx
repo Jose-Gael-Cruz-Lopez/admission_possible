@@ -166,3 +166,10 @@ export function IntroFloat() {
         </div>
 
         <h1 className="intro__title">
+          <span>Impossible is</span>
+          <span>just a deadline.</span>
+        </h1>
+      </div>
+    </section>
+  );
+}
