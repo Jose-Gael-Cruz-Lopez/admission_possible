@@ -575,6 +575,10 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
   .manifesto__grid { grid-template-columns: 1fr; }
   .manifesto__grid .vrule { display: none; }
   .manifesto__lines { padding-left: 0; margin-top: 24px; }
+  .team__head { grid-template-columns: 1fr; gap: 12px; padding-bottom: 36px; }
+  .team__cards { grid-template-columns: 1fr; gap: 40px; max-width: 420px; margin: 0 auto; }
+  .team__cards > :nth-child(2), .team__cards > :nth-child(3) { margin-top: 0; }
+  .teamcard { transform: rotate(0deg); }
   .how__track { flex-direction: column; min-height: 0; gap: 8px; }
   .how__track .slash--how { display: none; }
   .how__step { padding: 22px 0; border-bottom: 1px solid var(--hairline); }
