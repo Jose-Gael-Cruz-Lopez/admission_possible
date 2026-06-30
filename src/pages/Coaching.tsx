@@ -26,12 +26,6 @@ export default function Coaching() {
           <div className="triband__k">Draft review</div>
           <div className="triband__v">The human hour goes entirely to your essay.</div>
         </div>
-        <div className="triband__slash" />
-        <div className="triband__col">
-          <Icon name="money" className="triband__icon" />
-          <div className="triband__k">Access</div>
-          <div className="triband__v">Free or sliding-scale, free if QuestBridge-eligible.</div>
-        </div>
       </div>
 
       <p className="callout" data-reveal="">
