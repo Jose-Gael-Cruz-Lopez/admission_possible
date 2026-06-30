@@ -9,19 +9,6 @@ export default function Home() {
 
       {/* HERO */}
       <section id="hero" className="hero">
-        <div className="hero__top">
-          <h1 className="hero__title">
-            <span data-scramble="">Admission shouldn't</span>
-            <span data-scramble="">depend on who</span>
-            <span data-scramble="">you know.</span>
-          </h1>
-          <div className="hero__slashes">
-            <Slash variant="tall" animated />
-            <Slash variant="tall" animated />
-            <Slash variant="tall" animated />
-            <Slash variant="tall" animated />
-          </div>
-        </div>
         <div className="rule rule--mt" />
         <div className="hero__lead">
           <div className="label">Start here</div>
