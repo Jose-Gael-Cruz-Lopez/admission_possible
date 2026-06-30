@@ -36,6 +36,20 @@ without a map.
 The original vanilla implementation is preserved in git history (see the
 `legacy/` directory before the migration commits).
 
+---
+
+## Tech stack
+
+| Concern        | Choice                                  |
+| -------------- | --------------------------------------- |
+| UI             | **React 18** + **TypeScript** (strict)  |
+| Build / dev    | **Vite**                                |
+| Routing        | **React Router** (client-side)          |
+| Styling        | A single hand-authored `global.css`     |
+| Tests          | **Vitest** + **Testing Library** (jsdom)|
+| Hosting        | Static SPA (Vercel rewrite / SPA fallback) |
+
+
 ## Getting started
 
 ```bash
