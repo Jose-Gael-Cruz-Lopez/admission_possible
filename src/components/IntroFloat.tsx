@@ -138,3 +138,10 @@ export function IntroFloat() {
                   style={
                     {
                       '--fx': `${4 + (i % 5) * 2}px`,
+                      '--fy': `${6 + (i % 4) * 2.5}px`,
+                      '--fdur': `${5 + (i % 8)}s`,
+                      '--fdelay': `${(-i * 0.6).toFixed(2)}s`,
+                    } as React.CSSProperties
+                  }
+                >
+                  <img
