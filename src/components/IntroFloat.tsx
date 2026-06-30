@@ -145,3 +145,10 @@ export function IntroFloat() {
                   }
                 >
                   <img
+                    className="itile__media"
+                    src={IMAGES[t.img]}
+                    alt=""
+                    width={t.w}
+                    height={Math.round((t.w * 4) / 3)}
+                    loading={t.depth === 'far' ? 'lazy' : undefined}
+                    style={
