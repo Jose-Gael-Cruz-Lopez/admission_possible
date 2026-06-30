@@ -452,6 +452,8 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
   .itile--tablet { display: none; }
   .itile { --ms: 0.55; width: calc(var(--w) * 0.6); }
 }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 860px) {
