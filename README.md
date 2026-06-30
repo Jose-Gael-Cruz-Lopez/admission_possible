@@ -8,7 +8,7 @@ college list, and a study track — followed by a student dashboard.
 
 ---
 
-Migrated from a vanilla multi-page site to a single-page app:
+## Table of contents
 
 - **React 18** + **TypeScript** (strict)
 - **Vite** (dev server + build)
