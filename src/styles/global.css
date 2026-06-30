@@ -546,7 +546,7 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .intro__stage { --inward: 0.42; }
+  .intro__stage { --inward: 0.42; animation: none; }
   .intro__title { animation: none; }
   .itile__inner { animation: none; }
   .itile__media { animation: introFadeOnly 0.6s ease-out both; }
