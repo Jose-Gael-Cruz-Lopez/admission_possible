@@ -132,6 +132,20 @@ deadline."_ sits centered while ~20 thumbnail images orbit it.
   across every quadrant, at three depth tiers (`far` / `mid` / `near`) that
   drive size, opacity, blur, z-index, and movement amount.
 - **Load animation** — each image arrives from an exaggerated outer offset,
+  fading and scaling into place on a staggered `cubic-bezier(0.16, 1, 0.3, 1)`.
+- **Scroll-linked inward → outward** — progress across the section feeds a
+  `--inward` custom property (peaks ~45% scroll). Tiles interpolate between an
+  outward vector (ends) and an inward vector (mid), so they travel toward the
+  headline and then release back out.
+- **Continuous drift** — each image has an independent looping float on a
+  separate layer, so idle motion never fights the scroll transform.
+
+**Three-layer composition** keeps transforms from colliding:
+
+| Layer            | Owns                                  |
+| ---------------- | ------------------------------------- |
+| `.itile`         | scatter position + scroll parallax    |
+| `.itile__inner`  | continuous idle drift                 |
 ## The intake flow
 
 `Get my plan` goes to `/router`, a 7-question intake. On the last step the
