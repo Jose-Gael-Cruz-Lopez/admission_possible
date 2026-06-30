@@ -160,10 +160,10 @@ is scoped to animated wrappers, far images lazy-load, and
 `prefers-reduced-motion` disables drift in favour of a static fade-in. The
 headline is always real text.
 
-**Swapping in real photos** — drop files into `public/intro/` and update the
-`IMAGES` array at the top of `IntroFloat.tsx`; positions and motion keep
-working unchanged. The included `t1.svg`–`t8.svg` are brand-palette
-placeholders.
+**Swapping in photos** — the field uses campus photos in `public/intro/`
+(`yale`, `mit`, `harvard`, `princeton`), cycled across the tile slots. Drop
+more files in and update the `IMAGES` array at the top of `IntroFloat.tsx`;
+positions and motion keep working unchanged.
 
 ---
 

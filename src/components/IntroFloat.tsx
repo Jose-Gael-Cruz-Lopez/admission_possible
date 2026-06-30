@@ -1,13 +1,14 @@
-// Swap these for real photos (drop files in /public/intro and update the paths).
+// Campus photos, cycled across the tile slots. Drop more files in /public/intro
+// and add their paths here to vary the field further.
 const IMAGES = [
-  '/intro/t1.svg',
-  '/intro/t2.svg',
-  '/intro/t3.svg',
-  '/intro/t4.svg',
-  '/intro/t5.svg',
-  '/intro/t6.svg',
-  '/intro/t7.svg',
-  '/intro/t8.svg',
+  '/intro/yale.png',
+  '/intro/mit.png',
+  '/intro/harvard.png',
+  '/intro/princeton.png',
+  '/intro/yale.png',
+  '/intro/mit.png',
+  '/intro/harvard.png',
+  '/intro/princeton.png',
 ];
 
 type Depth = 'far' | 'mid' | 'near';
