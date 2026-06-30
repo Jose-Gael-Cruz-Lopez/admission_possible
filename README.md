@@ -6,7 +6,7 @@ A landing experience plus an interactive intake that turns a few questions
 into a concrete plan — a recommended application pathway, a balanced starter
 college list, and a study track — followed by a student dashboard.
 
-## Stack
+---
 
 Migrated from a vanilla multi-page site to a single-page app:
 
