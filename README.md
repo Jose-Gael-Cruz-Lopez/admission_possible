@@ -215,16 +215,6 @@ build on every push and PR to `main`.
 ## Deployment
 
 This is a client-routed SPA, so the host must serve `index.html` for every
-path (preserving the old site's direct-URL behaviour). `vercel.json` does
-this with a catch-all rewrite. On other static hosts, add the equivalent
-SPA fallback (e.g. a `404.html` copy of `index.html` for GitHub Pages).
-
-## Design notes
-
-- **Type:** Geist Mono (display) + Inter (body).
-- **Palette:** warm paper `#ECEAE4`, ink `#3A3A36`, electric `#3B33F0`.
-- **Motion:** scroll-triggered reveals and rotating hairline "slashes",
-  re-scanned on each route change, with an `IntersectionObserver` plus a
-  visibility/timeout fallback. Respects `prefers-reduced-motion`.
-- **Icons:** original freehand line icons, plus the supplied
-  `learn-write.png` (Streamline Freehand) for the Learn & write step.
+path (preserving the old site's direct-URL behaviour). `vercel.json` does this
+with a catch-all rewrite. On other static hosts, add the equivalent SPA
+fallback (e.g. a `404.html` copy of `index.html` for GitHub Pages).
