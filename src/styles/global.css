@@ -404,6 +404,14 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
   opacity: calc(var(--o) * (0.7 + 0.3 * var(--inward)));
   filter: blur(var(--blur));
   will-change: transform;
+  transform:
+    translate(
+      calc((var(--ox) + (var(--ix) - var(--ox)) * var(--inward)) * var(--ms)),
+      calc((var(--oy) + (var(--iy) - var(--oy)) * var(--inward)) * var(--ms))
+    )
+    rotate(calc(var(--rot) * var(--inward)));
+}
+.itile__inner {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 860px) {
