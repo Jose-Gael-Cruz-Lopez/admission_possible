@@ -1,9 +1,6 @@
 # (Ad)mission Possible
 
-The college application, demystified. A landing experience plus an
-interactive intake that turns a few questions into a concrete plan —
-a recommended application pathway, a balanced starter college list,
-and a study track — followed by a student dashboard.
+> The college application, demystified — and free, built for the first in their family.
 
 Built for the first in their family. Free.
 
