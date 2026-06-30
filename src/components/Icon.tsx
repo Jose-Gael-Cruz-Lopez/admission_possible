@@ -97,6 +97,7 @@ const PNG_ICONS: Partial<Record<IconName, string>> = {
   route: '/icons/route.png',
   coaching: '/icons/coaching.png',
   course: '/icons/course.png',
+  people: '/icons/people.png',
   write: '/icons/learn-write.png',
   list: '/icons/list.png',
   submit: '/icons/submit.png',
