@@ -444,6 +444,14 @@ a:focus-visible, button:focus-visible, [role='button']:focus-visible { outline: 
 
 /* Tablet: drop the desktop-only accents (≈12 images). */
 @media (max-width: 1100px) {
+  .itile--desktop { display: none; }
+  .itile { width: calc(var(--w) * 0.82); }
+}
+/* Mobile: keep only the anchor images (≈6), tighten travel, shrink. */
+@media (max-width: 700px) {
+  .itile--tablet { display: none; }
+  .itile { --ms: 0.55; width: calc(var(--w) * 0.6); }
+}
    RESPONSIVE
    ============================================================ */
 @media (max-width: 860px) {
