@@ -54,3 +54,10 @@ const TILES: Tile[] = [
   { x: 12, y: 82, w: 110, img: 0, depth: 'mid', o: 1, rot: 3, vis: 'mobile' },
   { x: 28, y: 73, w: 60, img: 5, depth: 'far', o: 0.55, rot: -2, vis: 'desktop' },
   { x: 44, y: 87, w: 84, img: 2, depth: 'mid', o: 1, rot: 2, vis: 'tablet' },
+  { x: 57, y: 80, w: 46, img: 6, depth: 'far', o: 0.5, rot: -3, vis: 'desktop' },
+  { x: 70, y: 84, w: 96, img: 7, depth: 'mid', o: 1, rot: -3, vis: 'tablet' },
+  { x: 85, y: 76, w: 130, img: 1, depth: 'near', o: 1, rot: 4, vis: 'mobile' },
+];
+
+export function IntroFloat() {
+  const sectionRef = useRef<HTMLElement>(null);
