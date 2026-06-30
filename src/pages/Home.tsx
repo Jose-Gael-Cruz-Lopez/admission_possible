@@ -1,5 +1,5 @@
 import { Circle } from '../components/Circle';
-import { Slash } from '../components/Slash';
+import { IntroFloat } from '../components/IntroFloat';
 
 export default function Home() {
   return (
