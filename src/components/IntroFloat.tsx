@@ -110,3 +110,10 @@ export function IntroFloat() {
             const ux = vx / len;
             const uy = vy / len;
             const inDist = d.in + (i % 4) * 9;
+            const outDist = d.out + (i % 3) * 14;
+            const loadDist = outDist * 0.7 + 54;
+
+            return (
+              <div
+                key={i}
+                className={`itile itile--${t.depth} itile--${t.vis}`}
