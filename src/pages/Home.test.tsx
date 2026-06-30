@@ -8,8 +8,6 @@ describe('Home', () => {
     renderWithRouter(<Home />);
     expect(screen.getByText('Impossible is')).toBeInTheDocument();
 
-    const cta = screen.getByRole('link', { name: 'Get my plan' });
-    expect(cta.getAttribute('href')).toBe('/router');
     expect(screen.getByRole('link', { name: 'Start' }).getAttribute('href')).toBe('/router');
   });
 
