@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef } from 'react';
+import type { KeyboardEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { NAV } from '../data/nav';
 import { Wordmark } from './Wordmark';
@@ -11,16 +12,48 @@ interface MenuProps {
 
 // Full-screen overlay menu: huge mono-caps links separated by backslashes.
 export function Menu({ open, current, onClose }: MenuProps) {
+  const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  // Move focus into the dialog when it opens.
+  // On open, capture the opener, focus the close button, and restore focus on close/unmount.
   useEffect(() => {
-    if (open) closeRef.current?.focus();
+    if (!open) return;
+    const opener = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+    return () => opener?.focus();
   }, [open]);
+
+  // Trap Tab / Shift+Tab within the dialog's focusable elements.
+  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== 'Tab') return;
+    const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusable || focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey) {
+      if (active === first || !dialogRef.current?.contains(active)) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else if (active === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
 
   if (!open) return null;
   return (
-    <div className="ov-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div
+      className="ov-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site menu"
+      ref={dialogRef}
+      onKeyDown={onKeyDown}
+    >
       <div className="ov-menu__top">
         <Wordmark white />
       </div>
