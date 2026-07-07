@@ -32,14 +32,20 @@ export function useReveal() {
       });
     };
 
+    // Track every scheduled rAF so the cleanup can cancel them all — otherwise
+    // in-flight scramble/scroll loops keep writing textContent to stale nodes.
+    const rafIds = new Set<number>();
+
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(() => {
+      const id = requestAnimationFrame(() => {
+        rafIds.delete(id);
         ticking = false;
         check();
       });
+      rafIds.add(id);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
@@ -80,10 +86,10 @@ export function useReveal() {
           out += j < reveal || text[j] === ' ' ? text[j] : chars[Math.floor(Math.random() * chars.length)];
         }
         node.textContent = out;
-        if (p < 1) requestAnimationFrame(tick);
+        if (p < 1) rafIds.add(requestAnimationFrame(tick));
         else node.textContent = text;
       };
-      requestAnimationFrame(tick);
+      rafIds.add(requestAnimationFrame(tick));
     });
 
     return () => {
@@ -91,6 +97,7 @@ export function useReveal() {
       window.removeEventListener('resize', onScroll);
       io?.disconnect();
       clearTimeout(fallback);
+      rafIds.forEach((id) => cancelAnimationFrame(id));
     };
   }, [pathname]);
 }
