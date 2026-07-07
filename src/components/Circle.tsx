@@ -11,13 +11,15 @@ interface CircleProps {
   /** Render as a button. */
   onClick?: () => void;
   type?: 'button' | 'submit';
+  /** Disable the button (ignored when rendered as a link). */
+  disabled?: boolean;
   /** Add data-reveal so it fades in on scroll. */
   reveal?: boolean;
   style?: CSSProperties;
 }
 
 // The one and only primary action: a solid electric-blue circle.
-export function Circle({ children, size = 'lg', to, onClick, type = 'button', reveal, style }: CircleProps) {
+export function Circle({ children, size = 'lg', to, onClick, type = 'button', disabled, reveal, style }: CircleProps) {
   const cls = `circle circle--${size}`;
   const revealAttr = reveal ? { 'data-reveal': '' } : {};
 
@@ -29,7 +31,15 @@ export function Circle({ children, size = 'lg', to, onClick, type = 'button', re
     );
   }
   return (
-    <button className={cls} type={type} onClick={onClick} style={style} {...revealAttr}>
+    <button
+      className={cls}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      aria-disabled={disabled}
+      style={style}
+      {...revealAttr}
+    >
       {children}
     </button>
   );
