@@ -28,7 +28,7 @@ export function Footer() {
       </div>
       <div className="rule" />
       <div className="footer__legal">
-        <div>© (Ad)mission Possible 2026. A nonprofit. Admission, made possible.</div>
+        <div>© (Ad)mission Possible {new Date().getFullYear()}. A nonprofit. Admission, made possible.</div>
         <div className="footer__tag">● First-gen access</div>
       </div>
     </footer>
