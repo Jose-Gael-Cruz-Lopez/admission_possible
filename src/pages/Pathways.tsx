@@ -30,7 +30,7 @@ export default function Pathways() {
         ))}
       </div>
       <div className="pathways__note">
-        Deadlines and mechanics change yearly. We pull current details at build time.
+        Deadlines and mechanics change yearly — always confirm the current details on each system's official site.
       </div>
 
       <div className="section-cta">
