@@ -6,7 +6,7 @@ import { renderWithRouter } from '../test/utils';
 describe('Home', () => {
   it('renders the hero headline and CTAs', () => {
     renderWithRouter(<Home />);
-    expect(screen.getByText('Impossible is')).toBeInTheDocument();
+    expect(screen.getByText('Impossible becomes')).toBeInTheDocument();
 
     expect(screen.getByRole('link', { name: 'Start' }).getAttribute('href')).toBe('/router');
   });

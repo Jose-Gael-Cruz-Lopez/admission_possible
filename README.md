@@ -130,8 +130,8 @@ src/
 ## Home intro animation
 
 The Home page opens with a full-screen **floating-image hero**
-(`src/components/IntroFloat.tsx`): the headline _"Impossible is just a
-deadline."_ sits centered while ~20 thumbnail images orbit it.
+(`src/components/IntroFloat.tsx`): the headline _"Impossible becomes
+Possible"_ sits centered while ~20 thumbnail images orbit it.
 
 **Behaviour**
 
