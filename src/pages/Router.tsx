@@ -96,11 +96,11 @@ export default function Router() {
             {step === 0 ? 'Cancel' : 'Back'}
           </button>
           {isLast ? (
-            <Circle size="router" onClick={next} style={{ opacity: canNext ? 1 : 0.35 }}>
+            <Circle size="router" onClick={next} disabled={!canNext} style={{ opacity: canNext ? 1 : 0.35 }}>
               See my plan
             </Circle>
           ) : (
-            <button className="ov-next" onClick={next} style={{ opacity: canNext ? 1 : 0.35 }}>
+            <button className="ov-next" onClick={next} disabled={!canNext} style={{ opacity: canNext ? 1 : 0.35 }}>
               Next
               <Slash variant="inline" />
             </button>
