@@ -247,3 +247,23 @@ This is a client-routed SPA, so the host must serve `index.html` for every
 path (preserving the old site's direct-URL behaviour). `vercel.json` does this
 with a catch-all rewrite. On other static hosts, add the equivalent SPA
 fallback (e.g. a `404.html` copy of `index.html` for GitHub Pages).
+
+### Security headers
+
+`vercel.json` also sets response headers, including a Content-Security-Policy.
+The default `connect-src 'self'` allows same-origin requests only.
+
+**Wiring up the Join form:** if you set `VITE_JOIN_ENDPOINT` (see
+`src/pages/Join.tsx`) to a **cross-origin** backend such as Formspree or
+Getform, that `fetch` is a `connect-src` and will be **blocked** by the CSP
+until you add the endpoint's origin. Update the `connect-src` slot in
+`vercel.json`:
+
+```diff
+- "connect-src 'self'; ...
++ "connect-src 'self' https://your-form-backend.example; ...
+```
+
+A same-origin endpoint (e.g. a `/api/join` Vercel Function) needs no CSP change.
+`vercel.json` is strict JSON and can't hold comments, so this is the canonical
+note for that edit.

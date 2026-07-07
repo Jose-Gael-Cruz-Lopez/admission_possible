@@ -50,6 +50,10 @@ export default function Join() {
       window.setTimeout(() => setLabel('Join'), 1800);
     };
 
+    // Set VITE_JOIN_ENDPOINT to POST submissions to a backend; unset uses the mailto fallback below.
+    // ⚠️ CSP: if this endpoint is CROSS-ORIGIN (e.g. a Formspree/Getform URL), you MUST add its origin
+    // to `connect-src` in vercel.json's Content-Security-Policy or the browser will block this POST.
+    // A same-origin endpoint (e.g. /api/join) works as-is. See README → Deployment → Security headers.
     const endpoint = import.meta.env.VITE_JOIN_ENDPOINT as string | undefined;
 
     // No backend configured? Hand the payload to the visitor's mail client so nothing is
