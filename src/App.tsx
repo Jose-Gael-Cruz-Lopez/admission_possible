@@ -12,6 +12,7 @@ import Router from './pages/Router';
 import Plan from './pages/Plan';
 import Dashboard from './pages/Dashboard';
 import TeamMember from './pages/TeamMember';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   return (
@@ -29,7 +30,7 @@ export default function App() {
         <Route path="/plan" element={<Plan />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/team/:slug" element={<TeamMember />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

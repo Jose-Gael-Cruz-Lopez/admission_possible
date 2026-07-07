@@ -6,7 +6,7 @@ import { renderWithRouter } from './test/utils';
 describe('App routing', () => {
   it('renders Home at /', () => {
     renderWithRouter(<App />, { route: '/' });
-    expect(screen.getByText('Impossible is')).toBeInTheDocument();
+    expect(screen.getByText('Impossible becomes')).toBeInTheDocument();
   });
 
   it('renders How it works at /how', () => {
@@ -19,8 +19,8 @@ describe('App routing', () => {
     expect(screen.getByText('hello@admissionpossible.org')).toBeInTheDocument();
   });
 
-  it('falls back to Home for unknown routes', () => {
+  it('renders the NotFound page for unknown routes', () => {
     renderWithRouter(<App />, { route: '/does-not-exist' });
-    expect(screen.getByText('Impossible is')).toBeInTheDocument();
+    expect(screen.getByText("This page didn't make the cut.")).toBeInTheDocument();
   });
 });
