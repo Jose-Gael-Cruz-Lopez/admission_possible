@@ -21,4 +21,26 @@ describe('intake storage', () => {
     sessionStorage.setItem('ap.intake', '{not json');
     expect(loadIntake()).toBeNull();
   });
+
+  it('returns null when the plan is an empty object', () => {
+    sessionStorage.setItem('ap.intake', '{"plan":{}}');
+    expect(loadIntake()).toBeNull();
+  });
+
+  it('returns null when plan arrays are missing or the wrong type', () => {
+    sessionStorage.setItem('ap.intake', '{"plan":{"pathway":"x","why":"y","reach":"nope","target":[],"likely":[]}}');
+    expect(loadIntake()).toBeNull();
+  });
+
+  it('returns null when pathway/why are not strings', () => {
+    sessionStorage.setItem('ap.intake', '{"plan":{"pathway":1,"why":2,"reach":[],"target":[],"likely":[]}}');
+    expect(loadIntake()).toBeNull();
+  });
+
+  it('returns null when the top-level value is not an object', () => {
+    sessionStorage.setItem('ap.intake', '"just a string"');
+    expect(loadIntake()).toBeNull();
+    sessionStorage.setItem('ap.intake', 'null');
+    expect(loadIntake()).toBeNull();
+  });
 });
