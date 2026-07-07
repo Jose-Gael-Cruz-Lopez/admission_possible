@@ -34,10 +34,21 @@ describe('intake flow', () => {
     expect(screen.getByText('1:1 Coaching')).toBeInTheDocument();
   });
 
+  it('disables the advance button until a valid option is selected', async () => {
+    const user = userEvent.setup();
+    renderWithRouter(<App />, { route: '/router' });
+
+    expect(screen.getByRole('button', { name: /next/i })).toBeDisabled();
+
+    await user.click(screen.getByText('11th grade'));
+
+    expect(screen.getByRole('button', { name: /next/i })).toBeEnabled();
+  });
+
   it('cancels back to home from the first step', async () => {
     const user = userEvent.setup();
     renderWithRouter(<App />, { route: '/router' });
     await user.click(screen.getByRole('button', { name: 'Cancel' }));
-    expect(await screen.findByText('Impossible is')).toBeInTheDocument();
+    expect(await screen.findByText('Impossible becomes')).toBeInTheDocument();
   });
 });
