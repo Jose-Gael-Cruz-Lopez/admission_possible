@@ -13,6 +13,12 @@ describe('Dashboard', () => {
     expect(await screen.findByText('What grade are you in?')).toBeInTheDocument();
   });
 
+  it('redirects to the router when the stored intake is malformed', async () => {
+    sessionStorage.setItem('ap.intake', '{"plan":{}}');
+    renderWithRouter(<App />, { route: '/dashboard' });
+    expect(await screen.findByText('What grade are you in?')).toBeInTheDocument();
+  });
+
   it('shows a scheduled session when the track is 1:1 coaching', () => {
     saveIntake({ answers: {}, plan: computePlan({}), trackOverride: '1:1 Coaching' });
     renderWithRouter(<App />, { route: '/dashboard' });
