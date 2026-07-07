@@ -3,15 +3,84 @@ import { Circle } from '../components/Circle';
 import { Crumbs } from '../components/Crumbs';
 import { navCrumbs } from '../data/nav';
 
+type JoinPayload = {
+  first: string;
+  last: string;
+  email: string;
+  grade: string;
+  needs: string;
+};
+
+// A pragmatic "looks like an email" check — catches typos without rejecting
+// valid-but-unusual addresses.
+const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
 export default function Join() {
   const [label, setLabel] = useState('Join');
+  const [error, setError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    formRef.current?.reset();
-    setLabel('Thanks');
-    window.setTimeout(() => setLabel('Join'), 1800);
+    const data = new FormData(e.currentTarget);
+    const payload: JoinPayload = {
+      first: String(data.get('first') ?? '').trim(),
+      last: String(data.get('last') ?? '').trim(),
+      email: String(data.get('email') ?? '').trim(),
+      grade: String(data.get('grade') ?? '').trim(),
+      needs: String(data.get('needs') ?? '').trim(),
+    };
+
+    // Validate before we celebrate: we need a name to greet you by and an email to reach you at.
+    if (!payload.first) {
+      setError('Please enter your first name so we know who to reach.');
+      return;
+    }
+    if (!isValidEmail(payload.email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    setError(null);
+
+    // Actually deliver the payload, then celebrate.
+    const succeed = () => {
+      formRef.current?.reset();
+      setError(null);
+      setLabel('Thanks');
+      window.setTimeout(() => setLabel('Join'), 1800);
+    };
+
+    const endpoint = import.meta.env.VITE_JOIN_ENDPOINT as string | undefined;
+
+    // No backend configured? Hand the payload to the visitor's mail client so nothing is
+    // silently lost — it still lands in the hello@ inbox, no third-party account required.
+    if (!endpoint) {
+      const subject = `Join request — ${payload.first} ${payload.last}`.trim();
+      const body = [
+        `First name: ${payload.first}`,
+        `Last name: ${payload.last}`,
+        `Email: ${payload.email}`,
+        `Grade level: ${payload.grade}`,
+        `What they need help with: ${payload.needs}`,
+      ].join('\n');
+      window.location.href = `mailto:hello@admissionpossible.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      succeed();
+      return;
+    }
+
+    // Backend configured: POST the payload and only say "Thanks" on a real 2xx.
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`Request failed with ${res.status}`);
+      succeed();
+    } catch {
+      setLabel('Try again');
+      setError("We couldn't send that just now. Please try again.");
+    }
   };
 
   return (
@@ -46,6 +115,11 @@ export default function Join() {
             <label htmlFor="needs">What do you need help with?</label>
             <textarea id="needs" name="needs" rows={3} />
           </div>
+          {error && (
+            <p className="join__error" role="alert" aria-live="polite">
+              {error}
+            </p>
+          )}
           <Circle size="join" type="submit">
             {label}
           </Circle>
