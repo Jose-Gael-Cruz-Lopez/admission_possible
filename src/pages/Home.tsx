@@ -60,16 +60,17 @@ export default function Home() {
           <div className="label">Manifesto</div>
           <div className="vrule" />
           <div className="manifesto__lines">
-            <div data-reveal="">They didn't say you couldn't. They just never showed you how.</div>
-            <div data-reveal="">There's a rulebook for getting in. Some kids get it at the dinner table.</div>
-            <div data-reveal="">We never got the table. So they called us underqualified.</div>
-            <div data-reveal="">We were never underqualified. We were uninformed.</div>
+            <div data-reveal="">They never said you couldn't. They just never showed you how.</div>
+            <div data-reveal="">
+              There's a rulebook for getting in. Some kids get it at the dinner table — we never did.
+            </div>
+            <div data-reveal="">We weren't underqualified. We were uninformed.</div>
             <div data-reveal="">
               You've read systems nobody explained your whole life. That's not the disadvantage. That's the skill.
             </div>
-            <div data-reveal="">So we built the map we never got. Every essay, every list, every deadline. Free.</div>
-            <div data-reveal="">Built by the ones who climbed it. For the ones about to.</div>
-            <div data-reveal="">Help one. Become one.</div>
+            <div data-reveal="">
+              So we built the map we never got. Every essay, every list, every deadline. Free — help one, become one.
+            </div>
           </div>
           <div />
         </div>
