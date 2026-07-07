@@ -14,6 +14,12 @@ describe('Plan', () => {
     expect(await screen.findByText('What grade are you in?')).toBeInTheDocument();
   });
 
+  it('redirects to the router when the stored intake is malformed', async () => {
+    sessionStorage.setItem('ap.intake', '{"plan":{}}');
+    renderWithRouter(<App />, { route: '/plan' });
+    expect(await screen.findByText('What grade are you in?')).toBeInTheDocument();
+  });
+
   it('renders the computed plan and toggles the track', async () => {
     const user = userEvent.setup();
     saveIntake({ answers: {}, plan: computePlan({ firstgen: 'Yes', pell: 'Yes', gpa: '3.8–4.0, lots of rigor' }) });
